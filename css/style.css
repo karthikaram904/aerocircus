@@ -162,7 +162,7 @@ body
 }
 
 .sticky-top.navbar-light .navbar-brand img {
-    max-height: 45px;
+    max-height: 65px;
 }
 
 .navbar .dropdown-toggle::after {
@@ -277,6 +277,7 @@ body
     .sticky-top.navbar-light {
         position: fixed;
         background: var(--bs-light) !important;
+		padding: 10px 20px !important;
     }
     .navbar-light .navbar-nav .nav-link.nav-contact::before {
         display: none;
