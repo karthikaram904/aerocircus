@@ -1,4 +1,16 @@
-/*** Spinner Start ***/
+/* ============================================
+  CIRCUS — DESIGN SYSTEM
+   Primary: #C0392B
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+    --pc-red:   #C0392B;
+    --pc-dark:  #1c1c1c;
+    --pc-gray:  #f5f5f5;
+}
+
 /*** Spinner ***/
 #spinner {
     opacity: 0;
@@ -6,19 +18,44 @@
     transition: opacity .5s ease-out, visibility 0s linear .5s;
     z-index: 99999;
 }
-
 #spinner.show {
     transition: opacity .5s ease-out, visibility 0s linear 0s;
     visibility: visible;
     opacity: 1;
 }
-body
-{
-    font-size: 18px !important; 
+
+/* Global */
+body {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 15px !important;
+    color: #333 !important;
+    background: #fff;
 }
-.display-2,.display-3,.display-1 {
-    font-size: 3rem;
-  }
+
+/* Headings */
+h1, h2, h3, h4, h5, h6,
+.display-1, .display-2, .display-3, .display-5 {
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 700;
+    letter-spacing: 0;
+}
+.display-1, .display-2, .display-3 {
+    font-size: 2.4rem;
+}
+
+/* Sub-title */
+.sub-title {
+    display: inline-block;
+    text-transform: uppercase;
+    color: var(--pc-red) !important;
+    letter-spacing: 2px;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.text-primary  { color: var(--pc-red) !important; }
+.text-secondary { color: var(--pc-red) !important; }
+
 /*** Spinner End ***/
 
 .back-to-top {
@@ -133,45 +170,77 @@ body
 
 
 /*** Navbar ***/
+.navbar-light {
+    border-bottom: 2px solid var(--pc-red);
+}
+
+/* Nav links — clean, no underline */
 .navbar-light .navbar-nav .nav-link {
-    font-family: 'Yantramanav', sans-serif;
+    font-family: 'Poppins', sans-serif;
     position: relative;
     margin-right: 25px;
     padding: 35px 0;
-    color: var(--bs-dark) !important;
-    font-size: 18px;
-    font-weight: 400;
+    color: #222 !important;
+    font-size: 15px;
+    font-weight: 600;
     outline: none;
-    transition: .5s;
+    text-decoration: none !important;
+    transition: color .25s;
+}
+
+/* Remove underline pseudo-element — exclude dropdown toggles */
+.navbar-light .navbar-nav .nav-link:not(.dropdown-toggle)::after {
+    display: none !important;
+}
+
+/* Active & hover — color only, no underline */
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link.active {
+    color: var(--pc-red) !important;
+    text-decoration: none !important;
 }
 
 .sticky-top.navbar-light .navbar-nav .nav-link {
     padding: 20px 0;
-    color: var(--dark) !important;
-    font-size: 18px !important;
-}
-
-.navbar-light .navbar-nav .nav-link:hover,
-.navbar-light .navbar-nav .nav-link.active {
-    color: var(--bs-primary) !important;
+    color: #222 !important;
+    font-size: 15px !important;
 }
 
 .navbar-light .navbar-brand img {
     max-height: 50px;
     transition: .5s;
+    filter: hue-rotate(-32deg) saturate(1.1) brightness(0.88);
 }
 
 .sticky-top.navbar-light .navbar-brand img {
     max-height: 65px;
+    filter: hue-rotate(-32deg) saturate(1.1) brightness(0.88);
 }
 
+/* Dropdown arrow — clean aligned */
 .navbar .dropdown-toggle::after {
     border: none;
     content: "\f107";
     font-family: "Font Awesome 5 Free";
-    font-weight: 600;
+    font-weight: 900;
+    font-size: 13px;
     vertical-align: middle;
-    margin-left: 8px;
+    margin-left: 5px;
+    line-height: 1;
+    display: inline-block;
+    position: relative;
+    top: 1px;
+}
+
+/* Dropdown menu item hover */
+.dropdown .dropdown-menu a:hover {
+    background: var(--pc-red) !important;
+    color: #fff !important;
+}
+.dropdown-item.active,
+.dropdown-item:active {
+    background: var(--pc-red) !important;
+    color: #fff !important;
 }
 
 @media (min-width: 1200px) {
@@ -188,11 +257,6 @@ body
     }
 }
 
-.dropdown .dropdown-menu a:hover {
-    background: var(--bs-primary);
-    color: var(--bs-white);
-}
-
 .navbar .nav-item:hover .dropdown-menu {
     transform: rotateX(0deg);
     visibility: visible;
@@ -201,67 +265,66 @@ body
     opacity: 1;
 }
 
+/* ── Mobile hamburger fix: collapse overlays banner (does not push it) ── */
+@media (max-width: 991px) {
+    .navbar-light {
+        position: relative !important;
+    }
+    .navbar-light .navbar-collapse {
+        position: absolute !important;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        z-index: 1050;
+        border-top: 2px solid var(--pc-red);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.10);
+        padding: 12px 20px 18px;
+        margin-top: 0 !important;
+        border-radius: 0 0 8px 8px;
+    }
+    .navbar-light .navbar-nav .nav-link,
+    .sticky-top.navbar-light .navbar-nav .nav-link {
+        padding: 10px 0;
+        margin-left: 0;
+        color: #222 !important;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    .navbar-light .navbar-nav .nav-link:last-child {
+        border-bottom: none;
+    }
+    .navbar-light .navbar-brand img {
+        max-height: 45px;
+    }
+}
+
 @media (max-width: 1100px) {
     .sticky-top.navbar-light {
         position: relative;
         background: var(--bs-white);
     }
-
-    .navbar.navbar-expand-lg .navbar-toggler {
-        padding: 10px 20px;
-        border: 1px solid var(--bs-primary);
-        color: var(--bs-primary);
-    }
-
-    .navbar-light .navbar-collapse {
-        margin-top: 15px;
-        border-top: 1px solid #DDDDDD;
-    }
-    .navbar.navbar-expand-xl.navbar-light.bg-white.px-4.px-xl-5.py-3.py-xl-0
-    {
+    .navbar.navbar-expand-xl.navbar-light.bg-white.px-4.px-xl-5.py-3.py-xl-0 {
         padding-bottom: 10px !important;
-        padding-top:10px !important;
+        padding-top: 10px !important;
     }
-    .aero2-event-body .btn {
-  padding: 10px !important;
-}
-.aero2-team-social a {
-  margin: 0 5px;
-  width: 25px !important;
-  height: 25px !important;
-  line-height: 25px !important;
-  font-size: 15px;
-  
-}
-.aero-festy-hero p {
-  text-align: center;
-  align-items: center;
-  align-content: center;
-  vertical-align: middle;
-  justify-content: center;
-  max-width: 1000px !important;
-}
-.aero-festy-hero .gap-3 {
-  vertical-align: middle;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  width: 100%;
-}
-.vision-section .col-md-4 {
-  width: 100%;
-}
-
-    .navbar-light .navbar-nav .nav-link,
-    .sticky-top.navbar-light .navbar-nav .nav-link {
-        padding: 10px 0;
-        margin-left: 0;
-        color: var(--bs-dark) !important;
+    .aero2-event-body .btn { padding: 10px !important; }
+    .aero2-team-social a {
+        margin: 0 5px;
+        width: 25px !important;
+        height: 25px !important;
+        line-height: 25px !important;
+        font-size: 15px;
     }
-
-    .navbar-light .navbar-brand img {
-        max-height: 45px;
+    .aero-festy-hero p {
+        text-align: center;
+        max-width: 1000px !important;
     }
+    .aero-festy-hero .gap-3 {
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .vision-section .col-md-4 { width: 100%; }
 }
 
 @media (min-width: 992px) {
@@ -385,7 +448,7 @@ body
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, .5);
+    background: rgba(0, 0, 0, 0.55);
 }
 
 .header-carousel .header-carousel-item .carousel-caption .carousel-caption-content {
@@ -945,11 +1008,12 @@ body
   }
   .footer-item img {
   width: 150px;
+  filter: hue-rotate(-32deg) saturate(1.1) brightness(0.88);
 }
 /* RTL Toggle Button */
 .rtl-btn {
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: none;
   background-color: #102d47;
@@ -1043,7 +1107,7 @@ body.dark .theme-btn {
 .counter-card h2 {
     font-size: 40px;
     font-weight: 700;
-    color: #F28B00;
+    color: #C0392B;
 }
 
 .counter-card p {
@@ -1057,7 +1121,7 @@ body.dark .theme-btn {
 .section-title {
     font-size: 36px;
     font-weight: 700;
-    color: #F28B00;
+    color: #C0392B;
 }
 
 .section-subtitle {
@@ -1075,16 +1139,21 @@ body.dark .theme-btn {
 
 .vision-card:hover {
     transform: translateY(-10px);
-    border-color: #F28B00;
+    border-color: #C0392B;
 }
 
 .vision-card .icon {
     font-size: 40px;
     margin-bottom: 15px;
+    color: var(--pc-red);
+}
+.vision-card .icon i {
+    font-size: 40px;
+    color: var(--pc-red);
 }
 
 .vision-card h4 {
-    color: #F28B00;
+    color: #C0392B;
     margin-bottom: 15px;
     font-weight: 600;
 }
@@ -1201,7 +1270,7 @@ body.dark .theme-btn {
 /* Icons */
 .overlay a {
     color: #fff;
-    background: #F28B00;
+    background: #C0392B;
     padding: 8px 10px;
     border-radius: 50%;
    
@@ -1245,7 +1314,7 @@ body.dark .theme-btn {
 }
 
 .team-details span {
-    color: #F28B00;
+    color: #C0392B;
     
 }
 
@@ -1260,7 +1329,7 @@ body.dark .theme-btn {
     width: 35px;
     height: 35px;
     line-height: 35px;
-    background: #F28B00;
+    background: #C0392B;
     color: #fff;
     border-radius: 50%;
     transition: 0.3s;
@@ -1310,7 +1379,7 @@ body.dark .theme-btn {
 }
 
 .class-info h4 {
-    color: #F28B00;
+    color: #C0392B;
     margin-bottom: 10px;
     font-weight: 600;
 }
@@ -1331,7 +1400,7 @@ body.dark .theme-btn {
     justify-content: center;
     text-align: left;
     background: #fff;
-    border: 4px solid #F28B00;
+    border: 4px solid #C0392B;
 }
 .learn-section {
     padding: 80px 0;
@@ -1364,7 +1433,7 @@ body.dark .theme-btn {
 }
 
 .learn-item h5 {
-    color: #F28B00;
+    color: #C0392B;
     margin-bottom: 8px;
 }
 
@@ -1380,7 +1449,7 @@ body.dark .theme-btn {
 }
 
 .center-box {
-    background: #F28B00;
+    background: #C0392B;
     color: #fff;
     padding: 40px 30px;
     border-radius: 20px;
@@ -1440,8 +1509,8 @@ body.dark .theme-btn {
     left: 50%;
     transform: translateX(-50%);
     background: #fff;
-    border: 2px solid #F28B00;
-    color: #F28B00;
+    border: 2px solid #C0392B;
+    color: #C0392B;
     width: 45px;
     height: 45px;
     line-height: 45px;
@@ -1461,7 +1530,7 @@ body.dark .theme-btn {
 
 /* Hover */
 .benefit-item:hover .number {
-    background: #F28B00;
+    background: #C0392B;
     color: #fff;
 }
 
@@ -1517,7 +1586,7 @@ body.dark .theme-btn {
 
 /* Highlight card */
 .price-card.active {
-    border: 2px solid #F28B00;
+    border: 2px solid #C0392B;
 }
 
 /* Tag */
@@ -1525,7 +1594,7 @@ body.dark .theme-btn {
     position: absolute;
     top: -10px;
     right: 20px;
-    background: #F28B00;
+    background: #C0392B;
     color: #fff;
     padding: 4px 10px;
     border-radius: 20px;
@@ -1540,7 +1609,7 @@ body.dark .theme-btn {
 .price-card h2 {
     font-size: 32px;
     margin: 10px 0;
-    color: #F28B00;
+    color: #C0392B;
 }
 
 .price-card p {
@@ -1563,7 +1632,7 @@ body.dark .theme-btn {
     display: inline-block;
     padding: 10px 20px;
     border-radius: 30px;
-    background: #F28B00;
+    background: #C0392B;
     color: #fff;
     text-decoration: none;
     transition: 0.3s;
@@ -1746,8 +1815,10 @@ direction:initial;
 html[dir="rtl"] {
   direction: rtl;
 }
-.dark #navbarCollapse .nav-item,.dark .nav-item.dropdown .nav-link {
-  color: #fff !important;
+
+
+.dark .nav-item.dropdown .nav-link:not(.active):not(:hover) {
+  color: #C0392B !important;
 }
 .rtl .navbar .dropdown-toggle::after {
   margin-right: 8px;
@@ -1786,7 +1857,7 @@ html[dir="rtl"] {
 .schedule-item .time {
     min-width: 220px;
     font-weight: 600;
-    color: #F28B00;
+    color: #C0392B;
 }
 
 .schedule-item .content h5 {
@@ -1823,7 +1894,7 @@ html[dir="rtl"] {
 .schedule-item .time {
     min-width: 200px;
     font-weight: 600;
-    color: #F28B00;
+    color: #C0392B;
 }
 .dark .event-item h4,.dark #currentMonth,.dark .schedule-item h5,.dark .event-desc h4,.dark .blog-con h5,.dark .blog-con small,.dark .blog-page .sidebar .bg-light h5,.dark .blog-page .sidebar .bg-light a,.dark .blog-page .sidebar .bg-light small,.dark .blog-page h2,.dark .blog-page h4,.dark .blog-page h6,.dark .contact.py-5 .row h4
 {
@@ -1892,13 +1963,13 @@ padding-right: 0px;
 
 /* Button */
 .aero-btn-main {
-    background: #F28B00;
+    background: #C0392B;
     color: #fff;
     border: none;
 }
 
 .aero-btn-main:hover {
-    background: #d97706;
+    background: #922B21;
     color: #fff;
 }
 
@@ -1994,7 +2065,7 @@ color: #fff;
   position: absolute;
   bottom: 20px;
   left: 20px;
-  background: #F28B00;
+  background: #C0392B;
   color: #fff;
   padding: 12px 20px;
   border-radius: 10px;
@@ -2008,20 +2079,20 @@ color: #fff;
 }
 
 .aero-feature-box:hover {
-  background: #F28B00;
+  background: #C0392B;
   color: #fff;
   transform: translateY(-3px);
 }
 
 /* Button */
 .aero-btn-main {
-  background: #F28B00;
+  background: #C0392B;
   color: #fff;
   border: none;
 }
 
 .aero-btn-main:hover {
-  background: #d97700;
+  background: #922B21;
   color: #fff;
 }
 /* Counter Section */
@@ -2041,7 +2112,7 @@ color: #fff;
 
 .aero-counter-box:hover {
   transform: translateY(-8px);
-  background: #F28B00;
+  background: #C0392B;
 }
 
 /* Icon */
@@ -2049,7 +2120,7 @@ color: #fff;
   width: 70px;
   height: 70px;
   margin: auto;
-  background: #F28B00;
+  background: #C0392B;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2118,13 +2189,13 @@ color: #fff;
 
 /* Button */
 .aero-btn-main {
-  background: #F28B00;
+  background: #C0392B;
   color: #fff;
   border: none;
 }
 
 .aero-btn-main:hover {
-  background: #d97700;
+  background: #922B21;
   color: #fff;
 }
 /* Section */
@@ -2151,7 +2222,7 @@ color: #fff;
 }
 
 .aero-class-item:hover {
-  background: #F28B00;
+  background: #C0392B;
   color: #fff;
   transform: translateX(8px);
 }
@@ -2175,7 +2246,7 @@ color: #fff;
 }
 
 .aero-class-content a {
-  color: #F28B00;
+  color: #C0392B;
   text-decoration: none;
   font-weight: 500;
 }
@@ -2186,13 +2257,13 @@ color: #fff;
 
 /* Button */
 .aero-btn-main {
-  background: #F28B00;
+  background: #C0392B;
   color: #fff;
   border: none;
 }
 
 .aero-btn-main:hover {
-  background: #d97700;
+  background: #922B21;
   color: #fff;
 }
 
@@ -2213,7 +2284,7 @@ color: #fff;
 }
 
 .aero2-subtitle {
-  color: #F28B00;
+  color: #C0392B;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -2261,7 +2332,7 @@ color: #fff;
   position: absolute;
   top: 15px;
   right: 15px;
-  background: #F28B00;
+  background: #C0392B;
   color: #fff;
   padding: 6px 12px;
   font-weight: 600;
@@ -2282,7 +2353,7 @@ color: #fff;
 }
 
 .aero2-meta i {
-  color: #F28B00;
+  color: #C0392B;
   margin-right: 5px;
 }
 
@@ -2301,7 +2372,7 @@ color: #fff;
   margin-top: 10px;
   padding: 8px 20px;
   border-radius: 50px;
-  background: #F28B00;
+  background: #C0392B;
   color: #fff;
   text-decoration: none;
   transition: 0.3s;
@@ -2365,7 +2436,7 @@ color: #fff;
 
 .aero2-overlay i {
   margin-right: 5px;
-  color: #F28B00;
+  color: #C0392B;
 }
 
 /* Content */
@@ -2416,7 +2487,7 @@ color: #fff;
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 20px;
-  border: 4px solid #F28B00;
+  border: 4px solid #C0392B;
 }
 
 .aero2-team-img img {
@@ -2432,7 +2503,7 @@ color: #fff;
 }
 
 .aero2-team-content span {
-  color: #F28B00;
+  color: #C0392B;
   display: block;
   margin-bottom: 15px;
 }
@@ -2455,7 +2526,7 @@ color: #fff;
   height: 35px;
   line-height: 35px;
   border-radius: 50%;
-  background: #F28B00;
+  background: #C0392B;
   color: #fff;
   transition: 0.3s;
 }
@@ -2475,7 +2546,7 @@ color: #fff;
   color: #fff;
   border-color: #fff;
 }
-.dark .testimonial-item h5,.dark .aero-about2 p,.dark .aero-class2 p,.dark .aero2-blog-content p,.dark .aero2-desc,.dark .vision-card p,.dark .why-card p,.dark .class-info p,.dark .learn-item p,.dark .benefit-item p,.dark .price-card p,.dark .event-sche p.text-muted,.dark .event-desc p.text-muted,.dark .card-title,.book-sec-page p,.dark .col-lg-8.order-2.order-lg-2 small
+.dark .testimonial-item h5,.dark .aero-about2 p,.dark .aero-class2 p,.dark .aero2-blog-content p,.dark .aero2-desc,.dark .vision-card p,.dark .why-card p,.dark .class-info p,.dark .learn-item p,.dark .benefit-item p,.dark .price-card p,.dark .event-sche p.text-muted,.dark .event-desc p.text-muted,.dark .card-title,.dark .book-sec-page p,.dark .col-lg-8.order-2.order-lg-2 small
 {
   color: #fff !important;
 }
@@ -2486,4 +2557,334 @@ color: #fff;
 .author-bx div {
   vertical-align: center;
   align-content: center;
+}
+
+/* ============================================================
+   PANIDU CIRCUS — DESIGN OVERRIDES  (single color: #C0392B)
+   ============================================================ */
+
+/* Counter section */
+.container-fluid.counter-facts {
+    background: linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.78)),
+                url(../img/homefull.jpg) center/cover fixed no-repeat;
+}
+.counter-facts .counter:before { background: var(--pc-red) !important; }
+.counter-facts .counter .counter-value { color: var(--pc-red) !important; font-size: 32px; }
+.counter-facts .counter h3 { color: #fff !important; font-size: 14px; }
+
+/* Buttons */
+.btn.btn-primary {
+    background: var(--pc-red) !important;
+    border-color: var(--pc-red) !important;
+    color: #fff !important;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    box-shadow: none !important;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.btn.btn-primary:hover {
+    opacity: 0.88;
+    transform: translateY(-1px);
+    background: var(--pc-red) !important;
+    border-color: var(--pc-red) !important;
+    color: #fff !important;
+    box-shadow: 0 4px 12px rgba(192,57,43,0.3) !important;
+}
+
+/* About image border */
+.container-fluid.py-5 .border.bg-secondary.rounded {
+    border: 3px solid var(--pc-red) !important;
+    box-shadow: 6px 6px 0 rgba(192,57,43,0.15);
+}
+
+/* Card hover */
+.training-item:hover,
+.class-item:hover,
+.blog-item:hover,
+.event-item:hover {
+    box-shadow: 0 6px 20px rgba(192,57,43,0.15);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Gallery tab */
+.gallery .nav-item a.active { background: var(--pc-red) !important; }
+
+/* Stars */
+.fas.fa-star.text-secondary { color: var(--pc-red) !important; }
+
+/* Footer */
+.footer {
+    background: var(--pc-dark) !important;
+    border-top: 3px solid var(--pc-red);
+}
+.copyright { background: #111 !important; }
+.footer .footer-item .footer-link:hover { color: #fff !important; opacity: 0.75; letter-spacing: 0.5px; }
+
+/* Back to top */
+.back-to-top {
+    background: var(--pc-red) !important;
+    border-color: var(--pc-red) !important;
+}
+.back-to-top:hover { opacity: 0.85; }
+
+/* Hero caption sub-title */
+.carousel-caption h4.sub-title { color: #fff !important; opacity: 0.85; }
+
+/* Training number badge */
+.training-item .bg-primary { background: var(--pc-red) !important; }
+
+/* Team content bar */
+.team .team-carousel .team-item .team-content { background: #fff !important; }
+.team .team-carousel .team-item .team-content::after { background: var(--pc-red) !important; }
+.team .team-carousel .team-item .team-content a { color: var(--pc-dark) !important; font-weight: 600; }
+.team .team-carousel .team-item:hover .team-content a,
+.team .team-carousel .team-item:hover .team-content p { color: #fff !important; }
+.team-content p { color: #555 !important; font-size: 13px; }
+
+/* Video play */
+.video .btn-play span { border-left-color: var(--pc-red) !important; }
+
+/* Home2 */
+.aero-btn-main, .aero2-btn, .btn-main {
+    background: var(--pc-red) !important;
+    color: #fff !important;
+}
+.aero-btn-main:hover, .aero2-btn:hover, .btn-main:hover { opacity: 0.85; }
+.aero-about-badge { background: var(--pc-red) !important; color: #fff !important; }
+.aero-counter-icon, .aero-counter-box:hover { background: var(--pc-red) !important; }
+.aero2-team-img { border-color: var(--pc-red) !important; }
+.aero2-team-content span, .aero-class-content a, .aero2-subtitle { color: var(--pc-red) !important; }
+.aero2-date { background: var(--pc-red) !important; }
+.aero-class-item:hover, .aero-feature-box:hover { background: var(--pc-red) !important; color: #fff; }
+.aero2-team-social a, .social a, .overlay a { background: var(--pc-red) !important; }
+.aero2-meta i, .aero2-overlay i { color: var(--pc-red) !important; }
+
+/* Pricing & benefits */
+.price-card.active, .intro-box { border-color: var(--pc-red) !important; }
+.tag, .center-box { background: var(--pc-red) !important; }
+.number { border-color: var(--pc-red) !important; color: var(--pc-red) !important; }
+.benefit-item:hover .number { background: var(--pc-red) !important; color: #fff !important; }
+
+/* Schedule */
+.schedule-item .time { color: var(--pc-red) !important; }
+
+/* Text accents */
+.class-info h4, .section-title, .learn-item h5,
+.team-details span, .counter-card h2, .price-card h2,
+.vision-card h4 { color: var(--pc-red) !important; }
+
+/* Light mode — explicit dark text for team & booking */
+.team-details h5,
+.aero2-team-content h5 { color: #1a1a1a !important; }
+.book-lft h4,
+.book-lft li,
+.book-lft p { color: #333 !important; }
+
+/* Vision card always uses dark bg with light text */
+.vision-card { background: #1c1c1c !important; border-color: rgba(192,57,43,0.2) !important; }
+.vision-card:hover { border-color: var(--pc-red) !important; }
+.vision-card p { color: #ccc !important; }
+.vision-card h4 { color: var(--pc-red) !important; }
+
+.testimonial-content p {
+  font-size: 15px !important;
+}
+/* dropdown arrow – canonical rule is at the top of the navbar section */
+.aero-feature-box:hover .fa-check:before {
+  color: #fff !important;
+}
+
+/* ============================================================
+   DARK MODE — COMPREHENSIVE OVERRIDE
+   ============================================================ */
+
+/* Base — pure black background */
+body.dark {
+    background: #111 !important;
+    color: #e0e0e0 !important;
+}
+
+/* All sections & containers — excludes hero/banner sections that have bg images */
+body.dark section,
+body.dark .vision-section,
+body.dark .who-alt-section,
+body.dark .why-section,
+body.dark .team-section,
+body.dark .aero2-team-section,
+body.dark .counter-section,
+body.dark .book-sec-page,
+body.dark .contact,
+body.dark .py-5,
+body.dark .py-4 {
+    background: #111 !important;
+}
+
+/* Hero/banner sections: keep their background images in dark mode */
+body.dark .bg-breadcrumb,
+body.dark .aero-festy-hero,
+body.dark .header-carousel,
+body.dark .header-carousel-item {
+    background-color: transparent !important;
+}
+
+/* Bootstrap utility bg overrides */
+body.dark .bg-light,
+body.dark .bg-white {
+    background: #1a1a1a !important;
+}
+body.dark .bg-secondary {
+    background: #2a2a2a !important;
+}
+
+/* Cards & boxes */
+body.dark .vision-card,
+body.dark .why-card,
+body.dark .schedule-item,
+body.dark .class-info,
+body.dark .learn-item,
+body.dark .price-card,
+body.dark .aero-feature-box,
+body.dark .aero-train-card,
+body.dark .aero-class-item,
+body.dark .aero2-blog-card,
+body.dark .aero2-event-card,
+body.dark .card,
+body.dark .card-body,
+body.dark .author-bx,
+body.dark .blog-con,
+body.dark .testimonial-item,
+body.dark .team-details,
+body.dark .aero2-team-card {
+    background: #1e1e1e !important;
+    border-color: #333 !important;
+}
+
+/* Dark mode team card text */
+body.dark .team-details h5,
+body.dark .aero2-team-content h5 { color: #fff !important; }
+body.dark .team-details span,
+body.dark .aero2-team-content span { color: var(--pc-red) !important; }
+body.dark .book-lft .bg-light,
+body.dark .form-book .bg-white {
+    background: #1a1a1a !important;
+}
+
+/* All headings */
+body.dark h1, body.dark h2, body.dark h3,
+body.dark h4, body.dark h5, body.dark h6,
+body.dark .display-1, body.dark .display-2,
+body.dark .display-3, body.dark .display-5,
+body.dark .section-title,
+body.dark .section-subtitle {
+    color: #fff !important;
+}
+
+/* Body text */
+body.dark p,
+body.dark li,
+body.dark label,
+body.dark .text-muted,
+body.dark .text-dark,
+body.dark small {
+    color: #ccc !important;
+}
+
+/* Navbar */
+body.dark .navbar-light,
+body.dark .navbar.navbar-expand-xl {
+    background: #111 !important;
+    border-bottom-color: var(--pc-red) !important;
+}
+/* Dark mode nav — inactive links */
+body.dark .navbar-light .nav-link:not(.active):not(:hover),
+body.dark .navbar-light .navbar-nav .nav-link:not(.active):not(:hover),
+body.dark #navbarCollapse .nav-item a:not(.active):not(:hover) {
+    color: #ddd !important;
+    text-decoration: none !important;
+}
+/* Dark mode nav — active + hover links */
+body.dark .navbar-light .nav-link.active,
+body.dark .navbar-light .nav-link:hover,
+body.dark .navbar-light .navbar-nav .nav-link.active,
+body.dark .navbar-light .navbar-nav .nav-link:hover,
+body.dark #navbarCollapse .nav-item a.active,
+body.dark #navbarCollapse .nav-item a:hover {
+    color: var(--pc-red);
+    text-decoration: none !important;
+}
+body.dark .navbar-light .navbar-collapse {
+    background: #111 !important;
+}
+
+/* Topbar */
+body.dark .topbar {
+    background: #0a0a0a !important;
+}
+
+/* Footer */
+body.dark .footer .container-fluid {
+    background: #0a0a0a !important;
+}
+
+/* Form elements */
+body.dark .form-control,
+body.dark .form-select {
+    background: #1e1e1e !important;
+    border-color: #444 !important;
+    color: #e0e0e0 !important;
+}
+body.dark .form-control::placeholder {
+    color: #666 !important;
+}
+body.dark .form-control:focus,
+body.dark .form-select:focus {
+    background: #252525 !important;
+    border-color: var(--pc-red) !important;
+    box-shadow: 0 0 0 0.2rem rgba(192,57,43,0.25) !important;
+    color: #e0e0e0 !important;
+}
+
+/* Borders & dividers */
+body.dark .border,
+body.dark .border-top,
+body.dark .border-bottom {
+    border-color: #333 !important;
+}
+
+/* Container-fluid class section */
+body.dark .container-fluid.class {
+    background: #1a1a1a !important;
+}
+
+/* Dropdown menu — dark mode (higher specificity to beat hover rule) */
+body.dark .dropdown-menu,
+body.dark .navbar .nav-item:hover .dropdown-menu,
+body.dark .navbar .nav-item .dropdown-menu {
+    background: #1e1e1e !important;
+    border-color: #444 !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5) !important;
+}
+body.dark .dropdown-item,
+body.dark .dropdown-menu a,
+body.dark .dropdown-menu .nav-link {
+    color: #ddd !important;
+    background: transparent !important;
+}
+body.dark .dropdown-item:hover,
+body.dark .dropdown-menu a:hover {
+    background: var(--pc-red) !important;
+    color: #fff !important;
+}
+body.dark .dropdown-item.active,
+body.dark .dropdown-item:active {
+    background: var(--pc-red) !important;
+    color: #fff !important;
+}
+.dark .class-box.intro-box {
+  background: #1e1e1e !important;
+}
+.dark .footer{
+  background: #0a0a0a;
 }
