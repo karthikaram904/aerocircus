@@ -460,14 +460,43 @@ h1, h2, h3, h4, h5, h6,
 
 
 /*** Single Page Hero Header Start ***/
-.bg-breadcrumb {
+.bg-breadcrumb .about {
 	position: relative;
 	padding: 145px 0 50px 0;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
             url(../img/about-banner.jpg);
     background-position: center center;
-    background-repeat: no-repeat;    
+    background-repeat: no-repeat; 
+	background-size: cover;
 }
+.bg-breadcrumb.event{
+	position: relative;
+	padding: 145px 0 50px 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+            url(../img/about-banner.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+	background-size: cover;
+}
+.bg-breadcrumb.class {
+	position: relative;
+	padding: 145px 0 50px 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+            url(../img/about-banner.jpg);
+    background-position: center center;
+    background-repeat: no-repeat; 
+	background-size: cover;
+}
+.bg-breadcrumb.booking {
+	position: relative;
+	padding: 145px 0 50px 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+            url(../img/about-banner.jpg);
+    background-position: center center;
+    background-repeat: no-repeat; 
+	background-size: cover;
+}
+
 .breadcrumb-item a {
   color: #fff !important;
 }
