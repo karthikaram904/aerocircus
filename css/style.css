@@ -464,7 +464,7 @@ h1, h2, h3, h4, h5, h6,
 	position: relative;
 	padding: 145px 0 50px 0;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-            url(../img/about-banner.jpg);
+            url(../img/equl1.jpg);
     background-position: center center;
     background-repeat: no-repeat; 
 	background-size: cover;
@@ -473,7 +473,7 @@ h1, h2, h3, h4, h5, h6,
 	position: relative;
 	padding: 145px 0 50px 0;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-            url(../img/about-banner.jpg);
+            url(../img/equl2.jpg);
     background-position: center center;
     background-repeat: no-repeat;
 	background-size: cover;
@@ -482,7 +482,7 @@ h1, h2, h3, h4, h5, h6,
 	position: relative;
 	padding: 145px 0 50px 0;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-            url(../img/about-banner.jpg);
+            url(../img/equl3.jpg);
     background-position: center center;
     background-repeat: no-repeat; 
 	background-size: cover;
@@ -491,7 +491,16 @@ h1, h2, h3, h4, h5, h6,
 	position: relative;
 	padding: 145px 0 50px 0;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-            url(../img/about-banner.jpg);
+            url(../img/bannersize2.jpg);
+    background-position: center center;
+    background-repeat: no-repeat; 
+	background-size: cover;
+}
+.bg-breadcrumb.blog {
+	position: relative;
+	padding: 145px 0 50px 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+            url(../img/bannersize3.jpg);
     background-position: center center;
     background-repeat: no-repeat; 
 	background-size: cover;
