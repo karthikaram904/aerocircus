@@ -309,14 +309,4 @@ const btn = document.getElementById("rtl-toggle");
       icon.textContent = "RTL";
     }
   });
-// Navbar active link on scroll
-window.addEventListener('scroll', function () {
-    const navbar = document.querySelector('.navbar') || document.querySelector('nav');
-    
-    // Navbar background change on scroll
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled'); // CSS-ல் .scrolled style add பண்ணு
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
+
