@@ -2926,19 +2926,7 @@ body.dark .dropdown-item:active {
 .dark .footer{
   background: #0a0a0a;
 }
-/* Default navbar transparent / original color */
-.navbar {
-    background-color: transparent;
-    transition: background-color 0.3s ease;
-}
-
-/* Scrolled state */
-.navbar.scrolled {
-    background-color: #000; /* உன் site color மாத்தி வை */
-}
-
-/* Active nav link color */
-.navbar .nav-link.active,
-.navbar .nav-item.active .nav-link {
-    color: #your-active-color !important; /* உன் brand color வை */
+.navbar.navbar-expand-xl.navbar-light.bg-white.px-4.px-xl-5.py-3.py-xl-0.sticky-top.shadow-sm .nav-item.active {
+  color: var(--pc-red) !important;
+  text-decoration: none !important;
 }
