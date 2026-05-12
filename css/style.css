@@ -2930,3 +2930,8 @@ body.dark .dropdown-item:active {
   color: var(--pc-red) !important;
   text-decoration: none !important;
 }
+.navbar.navbar-expand-xl.navbar-light.bg-white.px-4.px-xl-5.py-3.py-xl-0.sticky-top.shadow-sm .nav-link.dropdown-toggle.active
+{
+	 color: var(--pc-red) !important;
+  text-decoration: none !important;
+}
