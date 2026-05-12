@@ -487,7 +487,7 @@ h1, h2, h3, h4, h5, h6,
     background-repeat: no-repeat; 
 	background-size: cover;
 }
-.bg-breadcrumb.booking {
+.bg-breadcrumb.book{
 	position: relative;
 	padding: 145px 0 50px 0;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
